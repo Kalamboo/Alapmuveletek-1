@@ -27,6 +27,7 @@ public class Muveletek extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jMenuItem1 = new javax.swing.JMenuItem();
         pnlGyakorlas = new javax.swing.JPanel();
         lblFeladat = new javax.swing.JLabel();
         txtEredmeny = new javax.swing.JTextField();
@@ -50,6 +51,7 @@ public class Muveletek extends javax.swing.JFrame {
         mnuFajl = new javax.swing.JMenu();
         mnuFajlMegnyit = new javax.swing.JMenuItem();
         mnuFajlMent = new javax.swing.JMenuItem();
+        mnuFajlMentMaskent = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuFajlKilep = new javax.swing.JMenuItem();
         mnuMuvelet = new javax.swing.JMenu();
@@ -57,6 +59,8 @@ public class Muveletek extends javax.swing.JFrame {
         buttonKivon = new javax.swing.JRadioButtonMenuItem();
         buttonSzoroz = new javax.swing.JRadioButtonMenuItem();
         buttonOszt = new javax.swing.JRadioButtonMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alapműveletek gyakoroltatása");
@@ -216,6 +220,14 @@ public class Muveletek extends javax.swing.JFrame {
             }
         });
         mnuFajl.add(mnuFajlMent);
+
+        mnuFajlMentMaskent.setText("Mentés Másként");
+        mnuFajlMentMaskent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuFajlMentMaskentActionPerformed(evt);
+            }
+        });
+        mnuFajl.add(mnuFajlMentMaskent);
         mnuFajl.add(jSeparator1);
 
         mnuFajlKilep.setText("Kilép");
@@ -307,6 +319,24 @@ public class Muveletek extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnuFajlMentActionPerformed
 
+    private void mnuFajlMentMaskentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFajlMentMaskentActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Mentés Másként");
+        fc.setCurrentDirectory(new File("."));
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        
+        int valasztottGombErteke = fc.showSaveDialog(this);
+        if(valasztottGombErteke == JFileChooser.APPROVE_OPTION){
+            File f = fc.getSelectedFile();
+            lblEredmeny.setText("<html>Elérés: " + f.getPath() + "<br>Fájl neve: " + f.getName() + "</html>");
+            try {
+                Files.write(Paths.get(f.getPath() + "\\stat.txt"), "Statisztika:".getBytes());
+            } catch (IOException ex) {
+                Logger.getLogger(Muveletek.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_mnuFajlMentMaskentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -355,6 +385,7 @@ public class Muveletek extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem buttonOszt;
     private javax.swing.JRadioButtonMenuItem buttonSzoroz;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblEredmeny;
@@ -374,6 +405,7 @@ public class Muveletek extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuFajlKilep;
     private javax.swing.JMenuItem mnuFajlMegnyit;
     private javax.swing.JMenuItem mnuFajlMent;
+    private javax.swing.JMenuItem mnuFajlMentMaskent;
     private javax.swing.JMenu mnuMuvelet;
     private javax.swing.JPanel pnlGyakorlas;
     private javax.swing.JTextField txtEredmeny;
