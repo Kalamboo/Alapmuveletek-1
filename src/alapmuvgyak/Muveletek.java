@@ -18,6 +18,7 @@ public class Muveletek extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         pnlGyakorlas = new javax.swing.JPanel();
         lblFeladat = new javax.swing.JLabel();
         txtEredmeny = new javax.swing.JTextField();
@@ -44,6 +45,10 @@ public class Muveletek extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuFajlKilep = new javax.swing.JMenuItem();
         mnuMuvelet = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alapműveletek gyakoroltatása");
@@ -206,6 +211,23 @@ public class Muveletek extends javax.swing.JFrame {
         jMenuBar1.add(mnuFajl);
 
         mnuMuvelet.setText("Műveletek");
+
+        buttonGroup1.add(jRadioButtonMenuItem1);
+        jRadioButtonMenuItem1.setText("Összeadás");
+        mnuMuvelet.add(jRadioButtonMenuItem1);
+
+        buttonGroup1.add(jRadioButtonMenuItem2);
+        jRadioButtonMenuItem2.setText("Kivonás");
+        mnuMuvelet.add(jRadioButtonMenuItem2);
+
+        buttonGroup1.add(jRadioButtonMenuItem3);
+        jRadioButtonMenuItem3.setText("Szorzás");
+        mnuMuvelet.add(jRadioButtonMenuItem3);
+
+        buttonGroup1.add(jRadioButtonMenuItem4);
+        jRadioButtonMenuItem4.setText("Osztás");
+        mnuMuvelet.add(jRadioButtonMenuItem4);
+
         jMenuBar1.add(mnuMuvelet);
 
         setJMenuBar(jMenuBar1);
@@ -294,8 +316,13 @@ public class Muveletek extends javax.swing.JFrame {
     private javax.swing.JButton btnEllenorzes;
     private javax.swing.JButton btnMegoldas;
     private javax.swing.JButton btnUj;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblEredmeny;
     private javax.swing.JLabel lblFeladat;
