@@ -22,11 +22,16 @@ public class Muveletek extends javax.swing.JFrame {
     int osszProbakSzama = 0;
     int szorzasProbakSzama = 0, osztasProbakSzama = 0;
 
+    JLabel[] lblTomb;
+    String[] lblTextTomb;
+    
     /**
      * Creates new form Muveletek
      */
     public Muveletek() {
         initComponents();
+        lblTomb = new JLabel[]{lblOsszKerdes, lblOsszProba, lblOsszeadKerdes, lblOsszeadProba, lblKivonasKerdes, lblKivonasProba, lblOsztasKerdes, lblOsztasProba, lblSzorzasKerdes, lblSzorzasProba};
+        lblTextTomb = new String[]{"Össz Probálkozások száma: ", "Össz Probálkozások száma: ", "Összeadás: ", "Összeadás: ", "Kivonás: ", "Kivonás: ", "Osztás: ", "Osztás: ", "Szorzás: ", "Szorzás: "};
     }
 
     /**
@@ -445,8 +450,59 @@ public class Muveletek extends javax.swing.JFrame {
 //                byte[] bajtTomb = Files.readAllBytes(path);
 //                byte egyBajt = bajtTomb[0];
                 List<String> stringLista = Files.readAllLines(path);
-                String egySor = stringLista.get(1);
-                String[] adatok = egySor.split(":");
+                
+                /*2.: */
+                int lblIndex = 0;
+                for (int i = 0; i < stringLista.size(); i++) {
+                    String egySor = stringLista.get(1);
+                    String[] adatok = egySor.split(": ");
+                    JLabel lbl = lblTomb[lblIndex + 1];//lblOsszProba;
+                    lbl.setText(lblTextTomb[lblIndex + 1] + adatok[2]);
+                    adatok = adatok[1].split(" ");
+                    lbl = lblTomb[lblIndex];
+                    lbl.setText(lblTextTomb[lblIndex] + adatok[0]);
+                    lblIndex += 2;
+                }
+                
+                
+//                //fejléc: Össz
+//                String egySor = stringLista.get(1);
+//                String[] adatok = egySor.split(": ");
+//                String proSzama = adatok[2];
+//                lblOsszProba.setText("Össz Probálkozások száma: " + proSzama);
+//                adatok = adatok[1].split(" ");
+//                String kerSzama = adatok[0];
+//                lblOsszKerdes.setText("Össz Kérdések száma: " + kerSzama);
+//                
+//                //Összeadás
+//                egySor = stringLista.get(2);
+//                adatok = egySor.split(": ");
+//                proSzama = adatok[2];
+//                lblOsszeadProba.setText("Összeadás: " + proSzama);
+//                adatok = adatok[1].split(" ");
+//                kerSzama = adatok[0];
+//                lblOsszeadKerdes.setText("Összead: " + kerSzama);
+//                
+//                //kivonás
+//                egySor = stringLista.get(3);
+//                adatok = egySor.split(": ");
+//                proSzama = adatok[2];
+//                lblKivonasProba.setText("Kivonás: " + proSzama);
+//                adatok = adatok[1].split(" ");
+//                kerSzama = adatok[0];
+//                lblKivonasKerdes.setText("Kivonás: " + kerSzama);
+//                
+//                //osztás
+//                egySor = stringLista.get(4);
+//                adatok = egySor.split(": ");
+//                proSzama = adatok[2];
+//                lblOsztasProba.setText("Osztás: " + proSzama);
+//                adatok = adatok[1].split(" ");
+//                kerSzama = adatok[0];
+//                lblOsztasKerdes.setText("Osztas: " + kerSzama);
+//                
+//                //szorzás
+                
                 
                 int temp = 67;
             } catch (IOException ex) {
@@ -580,7 +636,7 @@ public class Muveletek extends javax.swing.JFrame {
 //        statisztika += lblOsszProba.getText();
         
         
-        JLabel[] lblTomb = new JLabel[]{lblOsszKerdes, lblOsszProba, lblOsszeadKerdes, lblOsszeadProba, lblKivonasKerdes, lblKivonasProba, lblOsztasKerdes, lblOsztasProba, lblSzorzasKerdes, lblSzorzasProba};
+        
 //        javax.swing.JLabel[] lblTomb; Ugyan az! Itt nem kell importálni
 //        for (JLabel lbl : lblTomb) {
 //            statisztika += lbl.getText()+"\n";
